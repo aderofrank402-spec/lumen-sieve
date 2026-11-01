@@ -7,6 +7,7 @@ All notable changes to the public LUMEN Sieve engineering case study are documen
 ### Added
 
 - privacy-reviewed screenshot of the live homepage hero and product proposition.
+- privacy-reviewed screenshot of the authenticated company lookup form.
 
 ## [1.0.0] — 2026-11-02
 

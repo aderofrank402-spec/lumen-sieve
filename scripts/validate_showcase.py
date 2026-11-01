@@ -15,6 +15,7 @@ REQUIRED_FILES = (
     "LICENSE",
     "assets/lumen-sieve-social-preview.png",
     "assets/screenshots/homepage-hero.png",
+    "assets/screenshots/company-lookup-form.png",
     "docs/ARCHITECTURE.md",
     "docs/PRODUCT_FLOW.md",
     "docs/EXAMPLE_OUTPUT.md",

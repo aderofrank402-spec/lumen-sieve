@@ -19,6 +19,12 @@
 
 *The live homepage presents the core workflow: submit a business name and location, reconcile evidence from discovered sources, and return a structured profile with field-level confidence.*
 
+### Start a lookup
+
+![LUMEN Sieve company lookup form with name and domain modes](assets/screenshots/company-lookup-form.png)
+
+*The authenticated lookup form accepts either a business name plus country or a company domain before starting profile resolution.*
+
 ## What the product does
 
 LUMEN Sieve accepts a company name or domain, discovers relevant public sources, fetches and extracts business evidence, resolves identity, reconciles conflicting field values, and returns a profile that keeps confidence and attribution attached to the claims it presents.
