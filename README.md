@@ -72,18 +72,18 @@ The current private codebase contains **250 active test files** and **1,746 iden
 ## Architecture at a glance
 
 ```mermaid
-flowchart LR
-    Client[Dashboard or API client] --> Gateway[API gateway]
-    Gateway --> Orchestrator[Profile orchestration]
-    Orchestrator --> Discovery[Source discovery]
-    Discovery --> Fetch[Tiered fetch pool]
-    Fetch --> Extract[Structured extraction]
-    Extract --> Reconcile[Evidence reconciliation]
-    Reconcile --> Profile[(Versioned profile)]
-    Profile --> Delivery[API, export, monitoring, webhooks]
-    Orchestrator -. telemetry .-> Observe[Metrics, traces, logs]
-    Discovery -. telemetry .-> Observe
-    Reconcile -. telemetry .-> Observe
+graph LR
+    client["Dashboard or API client"] --> gateway["API gateway"]
+    gateway --> orchestrator["Profile orchestration"]
+    orchestrator --> discovery["Source discovery"]
+    discovery --> fetch["Tiered fetch pool"]
+    fetch --> extract["Structured extraction"]
+    extract --> reconcile["Evidence reconciliation"]
+    reconcile --> profile[("Versioned profile")]
+    profile --> delivery["API, export, monitoring, and webhooks"]
+    orchestrator -.-> observe["Metrics, traces, and logs"]
+    discovery -.-> observe
+    reconcile -.-> observe
 ```
 
 See [Architecture](docs/ARCHITECTURE.md) for component boundaries and [Product flow](docs/PRODUCT_FLOW.md) for the request lifecycle.

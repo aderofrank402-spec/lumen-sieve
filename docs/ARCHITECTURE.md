@@ -5,36 +5,36 @@ This document describes public-safe component boundaries verified against the pr
 ## System context
 
 ```mermaid
-flowchart TB
-    Human[Researcher] --> Web[Next.js web application]
-    System[API consumer] --> API[REST API gateway]
-    Web --> API
-    API --> Auth[Authentication, scopes, quotas]
-    API --> Profile[Profile orchestration]
-    API --> Monitor[Monitoring and webhooks]
-    Profile --> Engine[Company-intelligence engine]
-    Engine --> Data[(Operational data stores)]
-    Profile --> Data
-    Monitor --> Data
-    API -. telemetry .-> Ops[Metrics, traces, logs, audit]
-    Engine -. telemetry .-> Ops
+graph TB
+    human["Researcher"] --> web["Next.js web application"]
+    consumer["API consumer"] --> gateway["REST API gateway"]
+    web --> gateway
+    gateway --> auth["Authentication, scopes, and quotas"]
+    gateway --> profile["Profile orchestration"]
+    gateway --> monitor["Monitoring and webhooks"]
+    profile --> engine["Company intelligence engine"]
+    engine --> data[("Operational data stores")]
+    profile --> data
+    monitor --> data
+    gateway -.-> operations["Metrics, traces, logs, and audit"]
+    engine -.-> operations
 ```
 
 ## Resolution pipeline
 
 ```mermaid
-flowchart LR
-    Input[Company name or domain] --> Resolve[Identity resolution]
-    Resolve --> Discover[Source discovery]
-    Discover --> Fetch0[Direct fetch tier]
-    Fetch0 -->|escalate when required| Fetch1[Browser-backed tier]
-    Fetch0 --> Extract[Structured extraction]
-    Fetch1 --> Extract
-    Extract --> Evidence[Field evidence]
-    Evidence --> Reconcile[Reconciliation]
-    Reconcile --> Version[Versioned profile]
-    Version --> APIOut[API and dashboard]
-    Version --> Change[Monitoring and webhooks]
+graph LR
+    input["Company name or domain"] --> identity["Identity resolution"]
+    identity --> discovery["Source discovery"]
+    discovery --> direct["Direct fetch tier"]
+    direct -->|"Escalate when required"| browser["Browser-backed tier"]
+    direct --> extraction["Structured extraction"]
+    browser --> extraction
+    extraction --> evidence["Field evidence"]
+    evidence --> reconciliation["Reconciliation"]
+    reconciliation --> versioned["Versioned profile"]
+    versioned --> apiout["API and dashboard"]
+    versioned --> changes["Monitoring and webhooks"]
 ```
 
 ## Verified responsibilities
@@ -74,14 +74,14 @@ The repository contains health/readiness handlers, Prometheus instrumentation, O
 ## Trust boundaries
 
 ```mermaid
-flowchart LR
-    Internet((Public internet)) -->|untrusted requests| Gateway[API gateway]
-    Sources((Public sources)) -->|untrusted content| Fetch[Fetch boundary]
-    Gateway -->|authenticated internal calls| Services[Internal services]
-    Fetch -->|bounded content| Extract[Extraction]
-    Extract -->|structured evidence| Reconcile[Reconciliation]
-    Services --> Stores[(Data stores)]
-    Reconcile --> Stores
+graph LR
+    internet(("Public internet")) -->|"Untrusted requests"| gateway["API gateway"]
+    sources(("Public sources")) -->|"Untrusted content"| fetch["Fetch boundary"]
+    gateway -->|"Authenticated internal calls"| services["Internal services"]
+    fetch -->|"Bounded content"| extraction["Extraction"]
+    extraction -->|"Structured evidence"| reconciliation["Reconciliation"]
+    services --> stores[("Data stores")]
+    reconciliation --> stores
 ```
 
 External requests and retrieved content are separate trust boundaries. The security review in the private repository tracks controls and gaps at both boundaries; this public document does not present the existence of a control as proof that every call path is risk-free.

@@ -9,6 +9,7 @@ All notable changes to the public LUMEN Sieve engineering case study are documen
 - privacy-reviewed screenshot of the live homepage hero and product proposition.
 - privacy-reviewed screenshot of the authenticated company lookup form.
 - original 38-second silent API-flow demonstration and reduced-motion poster from the live homepage.
+- GitHub-compatible Mermaid syntax for every flowchart, with quoted labels and parser-safe identifiers.
 
 ## [1.0.0] — 2026-11-02
 

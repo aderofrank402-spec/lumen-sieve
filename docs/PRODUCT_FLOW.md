@@ -37,23 +37,23 @@ sequenceDiagram
 ## Field reconciliation
 
 ```mermaid
-flowchart TD
-    A[Field evidence rows] --> B[Validate identity and evidence shape]
-    B --> C[Apply source credibility]
-    C --> D[Apply freshness and extraction confidence]
-    D --> E[Group equivalent candidate values]
-    E --> F{Field rule resolves conflict?}
-    F -->|yes| G[Rule-backed verdict]
-    F -->|no| H{Consensus is sufficient?}
-    H -->|yes| I[Consensus verdict]
-    H -->|no| J{Bounded arbitration available?}
-    J -->|yes| K[Arbitrated verdict or rejection]
-    J -->|no| L[Unresolved conflict]
-    G --> M[Calibrate confidence and attach sources]
-    I --> M
-    K --> M
-    L --> N[Explicit unresolved result]
-    M --> O[Validate and emit bounded trace]
+graph TD
+    evidence["Field evidence rows"] --> validate["Validate identity and evidence shape"]
+    validate --> credibility["Apply source credibility"]
+    credibility --> freshness["Apply freshness and extraction confidence"]
+    freshness --> group["Group equivalent candidate values"]
+    group --> rules{"Field rule resolves conflict?"}
+    rules -->|"Yes"| ruleverdict["Rule-backed verdict"]
+    rules -->|"No"| consensus{"Consensus is sufficient?"}
+    consensus -->|"Yes"| consensusverdict["Consensus verdict"]
+    consensus -->|"No"| arbitration{"Bounded arbitration available?"}
+    arbitration -->|"Yes"| arbitrated["Arbitrated verdict or rejection"]
+    arbitration -->|"No"| unresolved["Unresolved conflict"]
+    ruleverdict --> confidence["Calibrate confidence and attach sources"]
+    consensusverdict --> confidence
+    arbitrated --> confidence
+    unresolved --> explicit["Explicit unresolved result"]
+    confidence --> trace["Validate and emit bounded trace"]
 ```
 
 ## Change monitoring
