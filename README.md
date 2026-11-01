@@ -25,6 +25,14 @@
 
 *The authenticated lookup form accepts either a business name plus country or a company domain before starting profile resolution.*
 
+### API flow demonstration
+
+[![Poster for the LUMEN Sieve API lookup demonstration](assets/demo/api-demo-poster.jpg)](assets/demo/api-demo.mp4)
+
+**[Watch the 38-second silent demonstration](assets/demo/api-demo.mp4)**
+
+*Captured from the live homepage, the demonstration follows a production lookup from `POST /v1/profiles/lookup`, through asynchronous processing, to a reconciled profile returned by `GET /v1/profiles/{id}`. The displayed authorization value is a placeholder, not a credential.*
+
 ## What the product does
 
 LUMEN Sieve accepts a company name or domain, discovers relevant public sources, fetches and extracts business evidence, resolves identity, reconciles conflicting field values, and returns a profile that keeps confidence and attribution attached to the claims it presents.
@@ -157,7 +165,7 @@ I designed and built LUMEN Sieve across its backend services, intelligence workf
 
 ## Product media
 
-The screenshot above is captured from the live LUMEN Sieve product and has been reviewed for public publication. Additional workflow screenshots and a demonstration video will be added after the same privacy review. This repository does not use generated UI images or placeholder screenshots as evidence of product behavior.
+The screenshots and API-flow video above are captured from the live LUMEN Sieve product and have been reviewed for public publication. Additional workflow screenshots will be added after the same privacy review. This repository does not use generated UI images or placeholder screenshots as evidence of product behavior.
 
 ## Contact
 
