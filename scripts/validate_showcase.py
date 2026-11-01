@@ -14,6 +14,7 @@ REQUIRED_FILES = (
     "CHANGELOG.md",
     "LICENSE",
     "assets/lumen-sieve-social-preview.png",
+    "assets/screenshots/homepage-hero.png",
     "docs/ARCHITECTURE.md",
     "docs/PRODUCT_FLOW.md",
     "docs/EXAMPLE_OUTPUT.md",

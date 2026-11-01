@@ -13,6 +13,12 @@
 
 > This repository is a public engineering case study. The production source code remains private. This repository contains documentation and validation tooling—not proprietary application source, prompts, credentials, customer data, or deployment configuration.
 
+## Product preview
+
+[![LUMEN Sieve homepage hero showing the product proposition and reconciled-profile response](assets/screenshots/homepage-hero.png)](https://lumensieve.com)
+
+*The live homepage presents the core workflow: submit a business name and location, reconcile evidence from discovered sources, and return a structured profile with field-level confidence.*
+
 ## What the product does
 
 LUMEN Sieve accepts a company name or domain, discovers relevant public sources, fetches and extracts business evidence, resolves identity, reconciles conflicting field values, and returns a profile that keeps confidence and attribution attached to the claims it presents.
@@ -145,7 +151,7 @@ I designed and built LUMEN Sieve across its backend services, intelligence workf
 
 ## Product media
 
-Product screenshots and a demonstration video will be added after a separate privacy review. Until then, this repository does not use generated UI images or placeholder screenshots as evidence of product behavior.
+The screenshot above is captured from the live LUMEN Sieve product and has been reviewed for public publication. Additional workflow screenshots and a demonstration video will be added after the same privacy review. This repository does not use generated UI images or placeholder screenshots as evidence of product behavior.
 
 ## Contact
 
